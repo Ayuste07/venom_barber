@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pide tu cita — Venom Barber</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <a href="index.html" class="title-link">
+          <img src="logo.png" alt="Venom Barber Logo" class="logo-img" />
+          <div>
+            <p>Venom</p>
+            <p>Barber</p>
+          </div>
+        </a>
+      </div>
+
+      <nav class="nav-container" id="nav-menu">
+        <ul class="lista-nav">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#nosotros">Quiénes somos</a></li>
+          <li><a href="index.html#ubicacion">Ubicación</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <button class="btn-head btn-head-activo" disabled>Pide cita</button>
+        <button class="menu-toggle" id="menu-btn" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="reserva">
+        <div class="reserva-card">
+          <iframe
+            src="https://tidycal.com/venombarberbooking/pedir-cita"
+            class="tidycal-iframe"
+            frameborder="0"
+            scrolling="yes"
+          >
+          </iframe>
+        </div>
+
+        <p class="reserva-nota">
+          ¿Prefieres llamar?
+          <a href="tel:+34604904674" class="telefono">+34 604 90 46 74</a>
+        </p>
+      </section>
+    </main>
+
+    <!-- AQUÍ EL CAMBIO: El script nuevo y correcto de TidyCal -->
+    <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+    <script src="script.js"></script>
+  </body>
+</html>
