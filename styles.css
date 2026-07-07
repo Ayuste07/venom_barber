@@ -600,16 +600,25 @@ section {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* El elemento iframe propiamente dicho */
+/* ==========================================================
+   Tidycal — iframe directo (sin embed.js)
+   ========================================================== */
+
+/* El elemento iframe propiamente dicho.
+   Al ser un iframe estático con altura fija (no gestionado por el script
+   de auto-resize de TidyCal), no depende de que ningún navegador calcule
+   bien nada: si el contenido interno es más alto que el iframe, aparece
+   scroll nativo dentro de la caja gracias a scrolling="yes" en el HTML. */
 .tidycal-iframe {
   width: 100%;
   height: 750px; /* Altura ideal en PC para ver el calendario completo */
   display: block;
   background-color: transparent;
+  border: none;
 }
 
 /* ==========================================================
-   📱 ADAPTACIÓN PARA MÓVILES (Menos de 768px)
+   ADAPTACIÓN PARA MÓVILES (Menos de 768px)
    ========================================================== */
 @media (max-width: 768px) {
   .hero {
@@ -619,12 +628,70 @@ section {
     padding-top: 100px !important;
   }
 
-  /* En móvil limitamos la altura del iframe para que recoja la confirmación */
+  /* En móvil limitamos la altura del iframe para que quepa la confirmación
+     sin dejar hueco vacío debajo */
   .tidycal-iframe {
-    height: 620px; /* Forzamos a que el corte tape el espacio vacío */
+    height: 620px;
   }
 
   .reserva {
     padding: 0 16px !important;
   }
+}
+
+/* ==========================================================
+   ✅ PÁGINA DE CONFIRMACIÓN (redirect tras reserva en TidyCal)
+   ========================================================== */
+.confirmacion {
+  min-height: calc(100vh - 84px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.confirmacion-card {
+  max-width: 420px;
+  width: 100%;
+}
+
+.confirmacion-icono {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid var(--acento);
+  color: var(--acento);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.confirmacion-card h1 {
+  color: var(--texto);
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.confirmacion-card p {
+  color: var(--texto-suave);
+  font-size: 15px;
+  margin: 0 0 28px;
+}
+
+.btn-confirmacion-volver {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.confirmacion .reserva-nota {
+  margin-top: 24px;
+  color: var(--texto-suave);
+  font-size: 14px;
 }
